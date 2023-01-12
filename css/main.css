@@ -1,5 +1,7 @@
 @import './reset.css';
+@import'./loader.css';
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap');
+
 
 body{
     background-color: #000;
@@ -97,5 +99,10 @@ body{
 
 .show-more:hover {
     opacity: 0.7;
+}
+
+.loader-wrapper {
+    text-align: center;
+    padding: 100px 0;
 
 }
