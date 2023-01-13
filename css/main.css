@@ -4,6 +4,7 @@
 
 
 body{
+
     background-color: #000;
     color: #fff;
     font-family: 'Oswald', sans-serif;
@@ -14,6 +15,10 @@ body{
     background-position: 0px;
 }
 
+.none {
+    display: none !important;
+}
+
 .container-left {
     padding: 25px 15px 100px; 
     width: 683px;
@@ -21,9 +26,23 @@ body{
     border-right: 1px solid #162344;
 }
 
+.container-right {
+    position: fixed;
+    left: 683px;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    width: 683px;
+    background-color: rgba(5, 56, 185, 0.2);
+    border-right: 1px solid #162344;
+    padding: 25px;
+
+}
+
+
 .films {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap; 
     column-gap: 20px;
     row-gap: 20px;
     margin-bottom: 30px;
@@ -104,5 +123,49 @@ body{
 .loader-wrapper {
     text-align: center;
     padding: 100px 0;
+
+}
+
+/* right side */ 
+
+.btn-close {
+    position: absolute;
+    top: 10px;
+    left: 600px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.film {
+    display: grid;
+    grid-template-areas: 'title title' 'photo desc';
+    gap: 30px;
+}
+
+.film__title {
+    grid-area: title;
+    font-size: 28px;
+    font-weight: 300;
+}
+
+.film__img {
+    width: 325px;
+    height: 450px;
+    margin-right: 0;
+    grid-area: photo;
+}
+
+.film__desc {
+    grid-area: desc;
+
+}
+
+.film__details {
+    color: gold;
+}
+
+.film_text {
+    margin-top: 30px;
+    font-weight: 300;
 
 }
