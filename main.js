@@ -106,7 +106,11 @@ async function openFilmDetails (event) {
 }
 
 function renderFilmData (film) {
-    console.log('RENDER!');
+    // 0. Проверить, если тот или иной фильм уже открыт, то сначала нужно удалить его
+
+    if (document.querySelector('.container-right')) document.querySelector('.container-right').remove()
+    
+
 
     // 1. Отрендерить container-right
 
