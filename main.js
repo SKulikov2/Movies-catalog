@@ -144,8 +144,8 @@ function renderFilmData (film) {
     <div class="film__desc">
         <p class="film__details">Год: ${film.year}</p>
         <p class="film__details">Рейтинг: ${film.ratingKinopoisk}</p>
-        <p class="film__details">Продолжительность: ${film.filmLength} минут.</p>
-        <p class="film__details">Страна: ${film.countries[0]['country']}</p>
+        <p class="film__details">Продолжительность: ${formatFilmLength(film.filmLength)}</p>
+        <p class="film__details">Страна: ${formatCountry(film.countries)}</p>
         <p class="film_text">${film.description}</p>
     </div>
 </div>`
@@ -153,6 +153,37 @@ function renderFilmData (film) {
 containerRight.insertAdjacentHTML('beforeend', html)
 
 }
+
+// Напишем функцию для форматирования времени, минуты переведем в часы и минуты
+function formatFilmLength (value) {
+    let length = ''
+
+    const hours = Math.floor(value / 60);
+    const minutes = value % 60;
+
+    if(hours > 0) length += hours + ' ч. '
+    if (minutes > 0) length += minutes + ' мин.' 
+    return length;   
+}
+
+// Напишем функцию для вывода страны фильма
+
+function formatCountry (countriesArray) {
+    
+    let countriesString = '';
+    for (country of countriesArray) {
+
+        // Первая часть после += это country из цикла, вторая часть это country из объекта
+        countriesString += country.country;
+        // проверка для добавления запятой
+        if (countriesArray.indexOf(country) + 1 < countriesArray.length) countriesString += ', '
+    }
+        return countriesString;
+    
+
+
+}
+
 
     // Вызываем основную функцию. Такой способ 'отлавливания ошибок' короче, чем через try catch
 fetchAndRenderFilms().catch(err => console.log(err))
